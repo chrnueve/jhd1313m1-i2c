@@ -16,13 +16,15 @@ jobs:
     - name: Setup Rust
       uses: actions-rs/toolchain@v1
       with:
-        toolchain: stable
+        toolchain: nightly
         override: true
+        target: thumbv6m-none-eabi
 
-    - name: Build
+    - name: Build for RP2040
       uses: actions-rs/cargo@v1
       with:
         command: build
+        args: --target thumbv6m-none-eabi
 
     # Solo ejecuta la publicación si estamos en la rama master
     - name: Publish to crates.io
@@ -31,4 +33,3 @@ jobs:
       with:
         command: publish
         args: --token ${{ secrets.CARGO_TOKEN }}
-
