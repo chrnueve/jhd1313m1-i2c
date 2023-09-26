@@ -1,0 +1,21 @@
+[package]
+name = "jhd1313m1-i2c"
+version = "0.1.0"
+edition = "2021"
+authors = ["Christian Gil <christian@christiangil.dev>"]
+description = "Controls JHD1313M1 character displays over I2C"
+license = "MIT"
+repository = "https://github.com/chrnueve/jhd1313m1-i2c"
+
+[dependencies]
+cortex-m = { version = "0.7.7" }
+cortex-m-rt = "0.7.3"
+
+defmt = "0.3"
+defmt-rtt = "0.4.0"
+panic-probe = { version = "0.3.1", features = ["print-defmt"] }
+
+embassy-executor = { version = "0.3.0", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "arch-cortex-m", "executor-thread", "executor-interrupt", "defmt", "integrated-timers"] }
+embassy-time = { version = "0.1.3", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "unstable-traits", "defmt", "defmt-timestamp-uptime"] }
+embassy-rp = { version = "0.1.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-traits", "nightly", "unstable-pac", "time-driver", "critical-section-impl"] }
+embedded-hal-async = { version = "1.0.0-rc.1", features = [] }

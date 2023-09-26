@@ -1,0 +1,34 @@
+name: Rust CI
+
+on:
+  push:
+    branches:
+      - master
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Build
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+
+    # Solo ejecuta la publicación si estamos en la rama master
+    - name: Publish to crates.io
+      if: github.ref == 'refs/heads/master'
+      uses: actions-rs/cargo@v1
+      with:
+        command: publish
+        args: --token ${{ secrets.CARGO_TOKEN }}
+
