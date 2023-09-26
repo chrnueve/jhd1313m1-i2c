@@ -25,7 +25,7 @@ A library to control the i2c JHD1313M1 display using Rust, based on the Rust Emb
 ## Dependencies
 
 - **Debugging & Logging**:
-  - `defmt`: v0.3
+  - `defmt`
 
 - **Embassy Framework**:
   - `embassy-rp`
