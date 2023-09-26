@@ -25,11 +25,3 @@ jobs:
       with:
         command: build
         args: --target thumbv6m-none-eabi
-
-    # Solo ejecuta la publicación si estamos en la rama master
-    - name: Publish to crates.io
-      if: github.ref == 'refs/heads/master'
-      uses: actions-rs/cargo@v1
-      with:
-        command: publish
-        args: --token ${{ secrets.CARGO_TOKEN }}

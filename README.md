@@ -40,7 +40,7 @@ To add this library to your Rust project, add the following line to your `Cargo.
 
 ```toml
 [dependencies]
-jhd1313m1_i2c = "0.0.1" 
+jhd1313m1_i2c = { version = "0.0.1", git = "https://github.com/chrnueve/jhd1313m1-i2c"}
 ```
 
 Then, run:
